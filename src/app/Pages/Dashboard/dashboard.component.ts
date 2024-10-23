@@ -12,54 +12,6 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
-  // transactions: Transaction[] = [
-  //   {
-  //     tipo: 'Entrada',
-  //     valor: 10.0,
-  //     status: 'Concluído',
-  //     nome: 'José da Silva',
-  //     conta: '0001',
-  //     chave: '**********2kpMp',
-  //     data: '10/10/2024 às 09:21',
-  //   },
-  //   {
-  //     tipo: 'Saída',
-  //     valor: 100.0,
-  //     status: 'Erro',
-  //     nome: 'Maria Cláudia',
-  //     conta: '0012',
-  //     chave: '**********BkuL',
-  //     data: '11/10/2024 às 21:02',
-  //   },
-  //   {
-  //     tipo: 'Entrada',
-  //     valor: 450.0,
-  //     status: 'Concluído',
-  //     nome: 'Cida Pereira',
-  //     conta: '0156',
-  //     chave: '**********BajFt',
-  //     data: '12/10/2024 às 06:35',
-  //   },
-  //   {
-  //     tipo: 'Saída',
-  //     valor: 1000.0,
-  //     status: 'Concluído',
-  //     nome: 'Rafaela Milena',
-  //     conta: '0017',
-  //     chave: '**********2ajLy',
-  //     data: '14/10/2024 às 14:17',
-  //   },
-  //   {
-  //     tipo: 'Entrada',
-  //     valor: 50.0,
-  //     status: 'Concluído',
-  //     nome: 'Luana Fátima',
-  //     conta: '1065',
-  //     chave: '**********ukiS',
-  //     data: '14/10/2024 às 18:47',
-  //   },
-  // ];
   public transactions: Transaction[] = [];
   public userAuthenticated?: UserAuthenticated;
   constructor(
