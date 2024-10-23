@@ -1,0 +1,18 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .footer-content {
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3183d5;
+
+    span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+    }
+  }
+}

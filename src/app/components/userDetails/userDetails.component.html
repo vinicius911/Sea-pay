@@ -1,0 +1,51 @@
+<div class="details-section">
+    <div class="user-details">
+        <h2>Detalhes</h2>
+        <div class="detail-item">
+            <i class="pi pi-user"></i>
+            <span>{{userDetails?.name}}</span>
+        </div>
+        <div class="detail-item">
+            <i class="pi pi-envelope"></i>
+            <span>{{userDetails?.email}}</span>
+        </div>
+        <div class="detail-item">
+            <i class="pi pi-wallet"></i>
+            <span>{{userDetails?.account_type == 'standard' ? 'Conta Pessoal' : 'Conta para Logista'}}</span>
+        </div>
+    </div>
+
+    <div class="account-details">
+        <div class="header-wrapper">
+            <h2>Conta</h2>
+            <button (click)="toggleHideInfo()">
+                <i *ngIf="hideInfo; else showIcon" class="pi pi-eye-slash"></i>
+                <ng-template #showIcon>
+                    <i class="pi pi-eye"></i>
+                </ng-template>
+            </button>
+        </div>
+
+        <div class="account-info">
+            <div class="detail-row">
+                <h4>Número:</h4>
+                <span>{{ hideInfo ? '******' : userDetails?.account?.account_number }}</span>
+            </div>
+
+            <div class="detail-row">
+                <h4>Saldo:</h4>
+                <span class="balance">R$ {{ hideInfo ? '****' : userDetails?.account?.amount?.toFixed(2) }}</span>
+            </div>
+
+            <div class="detail-row">
+                <h4>Chave:</h4>
+                <div class="key-container">
+                    <span>{{ hideInfo ? getMaskedKey() : userDetails?.account?.key }}</span>
+                    <button class="copy-button" (click)="copyKey()">
+                        <i class="pi pi-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

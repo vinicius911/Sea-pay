@@ -1,0 +1,65 @@
+.details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+
+  .user-details {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 10px;
+  }
+
+  .account-details {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 10px;
+
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+    }
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  .detail-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .balance {
+      font-weight: bold;
+      color: #3183d5;
+    }
+
+    .key-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+
+      .copy-button {
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+    }
+  }
+}

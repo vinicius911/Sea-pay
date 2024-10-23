@@ -1,0 +1,51 @@
+<div class="dashboard">
+    <app-menu></app-menu>
+
+    <div class="content">
+        <div class="transactions-section">
+            <div class="section-header">
+                <h2>Últimas transações</h2>
+
+                <div class="see-all-wrapper">
+                    <a href="/transacoes" class="view-all" routerLinkActive="active">
+                        Ver todas <i class="pi pi-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Nome</th>
+                        <th>Conta</th>
+                        <th>Chave</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of transactions">
+                        <td>{{ transactionType(transaction) }}</td>
+                        <td>R$ {{ transaction?.value }}</td>
+                        <td
+                            [ngClass]="{'completed': transaction?.status === 'success', 'error': transaction?.status === 'error'}">
+                            <span class="status">
+                                {{transaction.status == 'success' ? 'Concluído' : 'Erro'}}
+                            </span>
+                        </td>
+                        <td>{{ transaction?.tb_users?.name }}</td>
+                        <td>{{ transaction?.tb_accounts?.account_number }}</td>
+                        <td>{{ transaction?.tb_accounts?.key ?? '' | mask }}</td>
+                        <td>{{ transaction.transaction_date | date: 'dd/MM/yyyy \'às\' HH:mm' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <app-user-details></app-user-details>
+    </div>
+
+    <app-footer></app-footer>
+</div>

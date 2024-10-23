@@ -1,0 +1,111 @@
+<div class="login-container">
+  <div class="left-side">
+    <div class="login-box">
+      <div class="logo-container">
+        <img src="\assets\images\Logo.png" alt="Logo SeaPay">
+      </div>
+
+      <div class="form-title">Acesse sua conta</div>
+
+      <form [formGroup]="loginForm">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="login" class="form-label" style="font-size: 16px; font-weight: bold;">Login</label>
+            <input id="login" type="text" pInputText formControlName="login"
+              placeholder="Digite seu CPF ou CNPJ cadastrado" class="custom-input"
+              [class.ng-dirty]="loginForm.get('login')?.touched && loginForm.get('login')?.invalid" />
+            <small class="p-error" *ngIf="loginForm.get('login')?.touched && loginForm.get('login')?.invalid">
+              CPF/CNPJ é obrigatório
+            </small>
+          </div>
+          <div class="p-field">
+            <label for="senha" class="form-label" style="font-size: 16px; font-weight: bold;">Senha</label>
+            <input id="senha" type="password" pInputText formControlName="senha" placeholder="Digite sua senha"
+              class="custom-input"
+              [class.ng-dirty]="loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid" />
+            <small class="p-error" *ngIf="loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid">
+              Senha é obrigatória
+            </small>
+          </div>
+          <button pButton type="submit" class="button" (click)="login()">
+            Entrar
+          </button>
+          <div class="signup-link">
+            <span>Ainda não é membro? </span>
+            <a (click)="showDialog()">Abra sua conta!</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <img src="\assets\images\Background.png" alt="Imagem de fundo">
+  </div>
+</div>
+
+<div class="card flex justify-content-center">
+
+  <p-dialog header="Abra a sua conta no seaPay" [modal]="true" [(visible)]="visible">
+    <div class="modal">
+      <span class="p-text-secondary block mb-5">Complete os campos abaixo para abrir sua conta seaPay:</span>
+
+      <form [formGroup]="registerAccountForm">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="email" class="form-label" style="font-size: 16px; font-weight: bold;">
+              E-mail
+            </label>
+            <input id="email" type="email" pInputText formControlName="email" placeholder="exempo@email.com"
+              class="custom-input" />
+          </div>
+
+          <div class="p-field">
+            <label for="senha" class="form-label" style="font-size: 16px; font-weight: bold;">
+              Senha
+            </label>
+            <input id="senha" type="password" pInputText formControlName="senha" class="custom-input" />
+          </div>
+
+          <div class="p-field">
+            <label for="senha" class="form-label" style="font-size: 16px; font-weight: bold;">
+              Confirme sua Senha
+            </label>
+            <input id="senha" type="password" pInputText formControlName="senha" class="custom-input" />
+          </div>
+
+          <div>
+            <input type="checkbox" id="contaLogista" formControlName="contaLogista" (change)="updateFields()" />
+            Conta para logista
+          </div>
+          <span class="p-text-secondary block mb-5">
+            *Contas para logista não são aptas a realizar trasferências, apenas receber.
+          </span>
+
+          <div class="p-field">
+            <label for="nomeCompleto" class="form-label" style="font-size: 16px; font-weight: bold;"
+              [innerText]="nomeLabel">
+            </label>
+            <input id="nomeCompleto" type="text" pInputText formControlName="nomeCompleto"
+              [placeholder]="nomePlaceholder" class="custom-input" />
+          </div>
+
+          <div class="p-field">
+            <label for="cpf" class="form-label" style="font-size: 16px; font-weight: bold;" [innerText]="cpfLabel">
+            </label>
+            <input id="cpf" type="text" pInputText formControlName="cpfCnpj" [placeholder]="cpfPlaceholder"
+              class="custom-input" />
+          </div>
+        </div>
+      </form>
+
+      <div class="flex justify-content-center">
+        <p-button label="Enviar" (onClick)="registerAccount()" />
+      </div>
+    </div>
+  </p-dialog>
+</div>
+
+<p-toast />
+
+<p-confirmDialog />

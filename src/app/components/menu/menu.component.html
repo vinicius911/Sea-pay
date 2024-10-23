@@ -1,0 +1,21 @@
+<menu class="menu-wrapper">
+    <header class="header">
+        <div class="logo"><img src="/assets/images/Logo-alternativa.png" alt="Logo SeaPay"></div>
+        <div class="user-info">
+            <span>Olá, {{name}}</span>
+            <button class="btn-sair" (click)="sair()">Sair</button>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <a routerLink="/dashboard" routerLinkActive="active">
+            <i class="pi pi-home"></i> Início
+        </a>
+        <a routerLink="/transferencia" routerLinkActive="active">
+            <i class="pi pi-briefcase"></i> Transferência
+        </a>
+        <a routerLink="/transacoes" routerLinkActive="active">
+            <i class="pi pi-clock"></i> Transações
+        </a>
+    </nav>
+</menu>
